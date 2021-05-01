@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-card class="example-card" *ngFor='let result of results; let i=index'>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"><img src="https://pokeres.bastionbot.org/images/pokemon/{{inc+i}}.png"></div>
+            <mat-card-title>{{result.name}}</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <img mat-card-image src="https://pokeres.bastionbot.org/images/pokemon/{{inc+i}}.png" alt="{{result.name}}">
+    </mat-card>
+
+    <button mat-icon-button color="primary" class="left-arrow" (click)="get_previous()" aria-label="Example icon button with a home icon">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <button mat-icon-button color="primary" class="right-arrow" (click)="get_next()" aria-label="Example icon button with a home icon">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+</div>
+
+<router-outlet></router-outlet>
