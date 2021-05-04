@@ -1,0 +1,39 @@
+.example-card {
+    max-width: 290px;
+    float: left;
+    margin: 10px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+.example-header-image img {
+    height: 40px;
+}
+
+.container {
+    padding: 50px;
+    float: left;
+    margin: 5px;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+}
+
+.mat-card-image {
+    width: 80%;
+    margin: 0px 0 0px 15px;
+}
+
+.left-arrow {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    background-color: darkslateblue;
+    color: white;
+}
+
+.right-arrow {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    background-color: darkslateblue;
+    color: white;
+}

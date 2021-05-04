@@ -9,11 +9,11 @@ import {ApiService} from './service/api.service';
 export class AppComponent {
 
   response:any;
-  results:any;
-  current_url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=8';
+  results=[];
+  current_url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=40';
   next:any;
   previous:any;
-  inc=1;
+  inner_response:any;
 
   constructor(private api : ApiService)
   {
@@ -22,29 +22,37 @@ export class AppComponent {
 
   get_pokemon(url)
   {
+    var _this = this;
     this.api.get_api(url).subscribe((response)=>{
       this.response = response;
-      this.results = this.response.results;
       this.next = this.response.next;
-      this.previous = this.response.previous;
+      this.previous = this.response.previous; // console.log(this.response.results);
+      this.response.results.forEach(function(item){ 
+        _this.api.get_api(item.url).subscribe((res) => { 
+          _this.inner_response = res;
+          // console.log(_this.inner_response.types);
+          var type = [];
+          _this.inner_response.types.forEach((resp)=>{
+              type.push(resp.type.name);
+          });
+          var arr = {
+                    "name" : item.name,
+                    "image" : _this.inner_response.sprites.front_shiny,
+                    "type" : type
+                  };
+                  // console.log(arr); return false;
+          _this.results.push(arr);
+        });
+      });
     });
   }
 
-  get_next()
-  {
-    if(this.next != null){
-      this.inc = this.inc+20;
+  onScrollDown()
+  { console.log(this.next);
+    if(this.next!=null){
       this.get_pokemon(this.next);
     }
   }
 
-  get_previous()
-  {
-    if(this.previous != null){
-      this.inc = this.inc-20;
-      this.get_pokemon(this.previous);
-    }
-  }
-
-  title = 'pokemon';
+  title = 'Pokedex';
 }

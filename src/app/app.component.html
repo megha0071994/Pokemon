@@ -1,21 +1,26 @@
-<div class="container">
-    <mat-card class="example-card" *ngFor='let result of results; let i=index'>
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"><img src="https://pokeres.bastionbot.org/images/pokemon/{{inc+i}}.png"></div>
-            <mat-card-title>{{result.name}}</mat-card-title>
-            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        </mat-card-header>
-        <img mat-card-image src="https://pokeres.bastionbot.org/images/pokemon/{{inc+i}}.png" alt="{{result.name}}">
-    </mat-card>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <img src="/assets/icons/pokemon-logo-small.webp" width="165" height="64" alt="Pokemon Logo">
+    </mat-drawer>
+    <mat-drawer-content>
+        <h2>Pokedex</h2>
+    </mat-drawer-content>
+</mat-drawer-container>
+<mat-drawer-container class="example-container1">
+    <mat-drawer mode="side" opened>
 
-    <button mat-icon-button color="primary" class="left-arrow" (click)="get_previous()" aria-label="Example icon button with a home icon">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-
-    <button mat-icon-button color="primary" class="right-arrow" (click)="get_next()" aria-label="Example icon button with a home icon">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
-
-</div>
+    </mat-drawer>
+    <mat-drawer-content class="second-content" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()">
+        <div class="example-card" *ngFor='let result of results; let i=index'>
+            <div class="example-card-inner1"><img src="{{result.image}}" /></div>
+            <div class="example-card-inner2">
+                #{{i+1}} : {{result.name}}
+                <br/>
+                <br/>
+                <button class="button-chip" *ngFor='let ty of result.type;'>{{ty}}</button>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
 
 <router-outlet></router-outlet>

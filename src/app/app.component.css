@@ -1,39 +1,67 @@
+.example-container mat-drawer,
+.example-container mat-drawer-content {
+    padding: 0;
+    background: #f44336;
+}
+
+.example-container {
+    height: 65px;
+}
+
+.second-content {
+    padding: 15px;
+}
+
+.example-container .mat-drawer-inner-container {}
+
+.example-container mat-drawer-content {
+    margin-left: 168px !important;
+    color: #fff;
+}
+
+.example-container mat-drawer-content h2 {
+    padding-left: 20px;
+    letter-spacing: 2px;
+    padding-top: 15px;
+}
+
+.example-container1 mat-drawer {
+    width: 170px;
+}
+
 .example-card {
-    max-width: 290px;
+    width: 23%;
     float: left;
-    margin: 10px;
-    box-shadow: 2px 2px 2px 2px #ccc;
+    padding: 10px;
+    border: solid 1px #cccccc80;
+    margin: 7px;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    border-radius: 5px;
 }
 
-.example-header-image img {
-    height: 40px;
-}
-
-.container {
-    padding: 50px;
+.example-card-inner1,
+.example-card-inner2 {
     float: left;
-    margin: 5px;
-    border: solid 1px #ccc;
-    border-radius: 2px;
 }
 
-.mat-card-image {
-    width: 80%;
-    margin: 0px 0 0px 15px;
+.example-card-inner1 {
+    width: 30%;
 }
 
-.left-arrow {
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    background-color: darkslateblue;
+.example-card-inner2 {
+    width: 70%;
+    font-weight: bolder;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.button-chip {
+    background-color: #78c850;
+    border: solid 1px #78c850;
+    border-radius: 15px;
+    margin: 2px;
     color: white;
-}
-
-.right-arrow {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    background-color: darkslateblue;
-    color: white;
+    text-transform: capitalize;
+    padding: 0px 20px;
+    font-size: 14px;
 }
